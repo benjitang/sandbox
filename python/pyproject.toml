@@ -6,7 +6,11 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "black>=26.5.1",
+    "numpy>=2.5.1",
+    "pandas>=3.0.3",
     "ruff>=0.15.21",
+    "torch>=2.13.0",
+    "torchvision>=0.28.0",
 ]
 
 [tool.black]
@@ -42,3 +46,12 @@ known-first-party = ["app"]
 
 [tool.ruff.format]
 quote-style = "double"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
